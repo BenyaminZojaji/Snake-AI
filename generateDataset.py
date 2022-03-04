@@ -115,9 +115,10 @@ class Game(arcade.Window):
                              WIN_WIDTH // 2, WIN_HEIGHT // 2,
                              arcade.color.BLACK, DEFAULT_FONT_SIZE * 5, width=WIN_WIDTH, align='left')
             arcade.exit()
-        elif self.snake.score == 30:
+        elif self.snake.score == 30: # thats enough for now! :)
             Data = pd.DataFrame(self.Data)
-            Data.to_csv('snakeData.csv', index=False)
+            Data.columns=['x_snake', 'y_snake', 'x_apple', 'y_apple', 'x_sub', 'y_sub', 'direction']
+            Data.to_csv('data/snakeData.csv', index=False)
             arcade.exit()
 
     def on_update(self, delta_time: float):
